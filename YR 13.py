@@ -72,3 +72,20 @@
 # Mark[choice] = input("Food Name: ")
 #
 # print(Mark)
+
+# twoD = [[],
+#         [],
+#         [],
+#         []]
+# num = int(input("How many numbers per list in the 2D array: "))
+# for x in range(len(twoD)):
+#     for j in range(0, num):
+#         y = input("Data Value to be stored in 2D Array: ")
+#         twoD[x].append(y)
+# print(twoD)
+
+
+# A = {2,54,34,32,4}
+# B = {3,54,43,3,23,432,34} 
+# print(A | B)
+# print(A & B)
