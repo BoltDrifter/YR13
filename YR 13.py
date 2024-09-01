@@ -1,7 +1,15 @@
-# choice = "" while choice !="A" and choice !="B" and choice !="C" and choice !="D" and choice !="E" and choice !="F"
-# and choice !="U" : choice = input("Enter your Grade: ") if choice == "A": print("You Have achicved the top grade
-# !") quit() elif choice == "F" or choice == "U": print("You have failed the exam") quit() elif choice == "B" or
-# choice == "C" or choice == "D" or choice == "E": print("You have passed the exam") quit()
+# choice = "" 
+# while choice !="A" and choice !="B" and choice !="C" and choice !="D" and choice !="E" and choice !="F" and choice !="U" :
+#     choice = input("Enter your Grade: ")
+#     if choice == "A": 
+#         print("You Have achicved the top grade!") 
+#         quit()
+#     elif choice == "F" or choice == "U":
+#         print("You have failed the exam") 
+#         quit() 
+#     elif choice == "B" or choice == "C" or choice == "D" or choice == "E":
+#         print("You have passed the exam")
+#         quit()
 #
 # choice = int(input("""If you want to:
 #
@@ -46,10 +54,10 @@
 #
 #
 # choice = int(input("Enter a number between 1 to 10: "))
-#
+
 # if choice > 0 and choice < 11:
 #   print("Correct Input !")
-#
+
 # while choice < 1 or choice > 10:
 #   print("Invalid choice")
 #   choice = int(input("Enter a number between 1 to 10: "))
@@ -63,14 +71,14 @@
 #     y = input("Food Name: ")
 #     Mark.append(y)
 # print(Mark)
-#
+
 # choice = int(input("Which Food do you want to change: "))
-#
+
 # while choice > len(Mark):
 #     choice = int(input("Which Food do you want to change: "))
-#
+
 # Mark[choice] = input("Food Name: ")
-#
+
 # print(Mark)
 
 # twoD = [[],
