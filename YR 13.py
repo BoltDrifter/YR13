@@ -124,10 +124,20 @@ class Car:
         return(self.__PurchasePrice) 
 
 Car1 = Car("TO84304",343143)
+Car2 = Car("OPIRE21981", 3708370)
+
 choice = int(input("Price: "))
+
 Car1.SetPurchasePrice(choice)
+Car1.SetDate("12/4/12")
+
+Car2.SetDate("9/12/24")
+
+y = Car2.GetDate()
 x = Car1.GetPrice()
+
 print(f"The Price is: {x}")
+print(f"The date of registration is: {y}")
 
 
 
