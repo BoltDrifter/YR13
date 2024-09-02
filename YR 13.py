@@ -97,3 +97,40 @@
 # B = {3,54,43,3,23,432,34} 
 # print(A | B)
 # print(A & B)
+
+class Car:
+
+    def __init__(self,n,e):
+        self.__vehicleID =  n
+        self.__Registration =  ""
+        self.__DateofRegistration = None 
+        self.__EngineSize =  e
+        self.__PurchasePrice = 0.00
+    def SetPurchasePrice(self,p):
+        self.__PurchasePrice = p
+    def SetRegistration(self, r):
+        self.__Registration = r
+    def SetDate(self,d):
+        self.__DateofRegistration = d
+    def GetID(self):
+        return(self.__vehicleID)
+    def GetRegis(self):
+        return(self.__Registration)
+    def GetDate(self):
+        return(self.__DateofRegistration)
+    def GetSize(self):
+        return(self.__EngineSize)
+    def GetPrice(self):
+        return(self.__PurchasePrice) 
+
+Car1 = Car("TO84304",343143)
+choice = int(input("Price: "))
+Car1.SetPurchasePrice(choice)
+x = Car1.GetPrice()
+print(f"The Price is: {x}")
+
+
+
+
+
+
