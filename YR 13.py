@@ -125,22 +125,40 @@ class Car:
 
 Car1 = Car("TO84304",343143)
 Car2 = Car("OPIRE21981", 3708370)
+Car3 = Car("OPIu41", 3708370)
 
-choice = int(input("Price: "))
+choice1 = int(input("Price: "))
+choice2 = int(input("Price: "))
+choice3 = int(input("Price: "))
 
-Car1.SetPurchasePrice(choice)
+Car1.SetPurchasePrice(choice1)
 Car1.SetDate("12/4/12")
 
 Car2.SetDate("9/12/24")
+Car2.SetPurchasePrice(choice2)
+Car3.SetPurchasePrice(choice3)
 
-y = Car2.GetDate()
+z = Car3.GetPrice()
+y = Car2.GetPrice()
 x = Car1.GetPrice()
 
-print(f"The Price is: {x}")
-print(f"The date of registration is: {y}")
+# print(f"The Price is: {x}")
+# print(f"The date of registration is: {y}")
 
+high = 0 
 
+if x > high:
+    high = x
+if z > high:
+    high = z
+if y > high:
+    high = y
 
-
+if high == z:
+    print(Car3.GetID())
+if high == x:
+    print(Car1.GetID())
+if high == y:
+    print(Car2.GetID())
 
 
