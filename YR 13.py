@@ -186,7 +186,7 @@ c = Company("Sujay Enterprises")
 d = Company("Interpol")
 e = Company("Boeing")   
 
-a.SetDate(dt.)
+a.SetDate()
 b.SetDate("02/12/2024")
 c.SetDate("17/11/2026")
 d.SetDate("22/09/2023")
