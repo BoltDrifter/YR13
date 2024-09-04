@@ -98,67 +98,123 @@
 # print(A | B)
 # print(A & B)
 
-class Car:
+# class Car:
 
-    def __init__(self,n,e):
-        self.__vehicleID =  n
-        self.__Registration =  ""
-        self.__DateofRegistration = None 
-        self.__EngineSize =  e
-        self.__PurchasePrice = 0.00
-    def SetPurchasePrice(self,p):
-        self.__PurchasePrice = p
-    def SetRegistration(self, r):
-        self.__Registration = r
-    def SetDate(self,d):
-        self.__DateofRegistration = d
-    def GetID(self):
-        return(self.__vehicleID)
-    def GetRegis(self):
-        return(self.__Registration)
+#     def __init__(self,n,e):
+#         self.__vehicleID =  n
+#         self.__Registration =  ""
+#         self.__DateofRegistration = None 
+#         self.__EngineSize =  e
+#         self.__PurchasePrice = 0.00
+#     def SetPurchasePrice(self,p):
+#         self.__PurchasePrice = p
+#     def SetRegistration(self, r):
+#         self.__Registration = r
+#     def SetDate(self,d):
+#         self.__DateofRegistration = d
+#     def GetID(self):
+#         return(self.__vehicleID)
+#     def GetRegis(self):
+#         return(self.__Registration)
+#     def GetDate(self):
+#         return(self.__DateofRegistration)
+#     def GetSize(self):
+#         return(self.__EngineSize)
+#     def GetPrice(self):
+#         return(self.__PurchasePrice) 
+
+# Car1 = Car("TO84304",343143)
+# Car2 = Car("OPIRE21981", 3708370)
+# Car3 = Car("OPIu41", 3708370)
+
+# choice1 = int(input("Price: "))
+# choice2 = int(input("Price: "))
+# choice3 = int(input("Price: "))
+
+# Car1.SetPurchasePrice(choice1)
+# Car1.SetDate("12/4/12")
+
+# Car2.SetDate("9/12/24")
+# Car2.SetPurchasePrice(choice2)
+# Car3.SetPurchasePrice(choice3)
+
+# z = Car3.GetPrice()
+# y = Car2.GetPrice()
+# x = Car1.GetPrice()
+
+# # print(f"The Price is: {x}")
+# # print(f"The date of registration is: {y}")
+
+# high = 0 
+
+# if x > high:
+#     high = x
+# if z > high:
+#     high = z
+# if y > high:
+#     high = y
+
+# if high == z:
+#     print(Car3.GetID())
+# if high == x:
+#     print(Car1.GetID())
+# if high == y:
+#     print(Car2.GetID())
+
+import datetime as dt
+
+
+class Company:
+    def __init__(self,e):
+        self.companyname = e
+        self.email = ""
+        self.date = None
+    
+    def SetDate(self, a):
+        self.date = a
+    def GetName(self):
+        return(self.companyname)
     def GetDate(self):
-        return(self.__DateofRegistration)
-    def GetSize(self):
-        return(self.__EngineSize)
-    def GetPrice(self):
-        return(self.__PurchasePrice) 
+        return(self.date)
+    def GetEmail(self):
+        return(self.email)
+    
 
-Car1 = Car("TO84304",343143)
-Car2 = Car("OPIRE21981", 3708370)
-Car3 = Car("OPIu41", 3708370)
+a = Company("Twitter")
+b = Company("Nike")
+c = Company("Sujay Enterprises")
+d = Company("Interpol")
+e = Company("Boeing")   
 
-choice1 = int(input("Price: "))
-choice2 = int(input("Price: "))
-choice3 = int(input("Price: "))
+a.SetDate(dt.)
+b.SetDate("02/12/2024")
+c.SetDate("17/11/2026")
+d.SetDate("22/09/2023")
+e.SetDate("06/05/2020")
+   
+g = a.GetDate()
+f = b.GetDate()
+k = c.GetDate()
+l = d.GetDate()
+r = e.GetDate()
 
-Car1.SetPurchasePrice(choice1)
-Car1.SetDate("12/4/12")
+last = "1/1/1999"
 
-Car2.SetDate("9/12/24")
-Car2.SetPurchasePrice(choice2)
-Car3.SetPurchasePrice(choice3)
+if last < g:
+    last = g
+    print(last)
 
-z = Car3.GetPrice()
-y = Car2.GetPrice()
-x = Car1.GetPrice()
+if last < f:
+    last = f
+    print(last)
 
-# print(f"The Price is: {x}")
-# print(f"The date of registration is: {y}")
+if last < k:
+    last = k
+    print(last)
 
-high = 0 
-
-if x > high:
-    high = x
-if z > high:
-    high = z
-if y > high:
-    high = y
-
-if high == z:
-    print(Car3.GetID())
-if high == x:
-    print(Car1.GetID())
-if high == y:
-    print(Car2.GetID())
-
-
+if last < l:
+    last = l
+    print(last)
+if last < r:
+    last = r
+    print(last)
