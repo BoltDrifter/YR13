@@ -41,58 +41,6 @@ print(f"The Highest Engine Size is with: {id}")
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Car1 = Car("TO84304",343143)
 # Car2 = Car("OPIRE21981", 3708370)
 # Car3 = Car("OPIu41", 3708370)
