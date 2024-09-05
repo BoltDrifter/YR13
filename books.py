@@ -19,13 +19,13 @@ class Library:
         return(self.__OnLoan)
     def GetDueDate(self):
         return(self.__DueDate)
-    def SetBorrow(self,p):
+    def SetOnLoan(self,p):
         self.__OnLoan = p
     def PrintDetails(self):
         return(self.__Title,self.__Author,self.__ItemId,self.__OnLoan,self.__DueDate)
 
 
-Libraryitems = [0 for i in range(1)]
+Libraryitems = [0 for i in range(50)]
 
 for i in range(len(Libraryitems)):
     Title = input("Title: ")
