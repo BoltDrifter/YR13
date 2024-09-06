@@ -58,7 +58,7 @@ class CD(LibraryItem):
     def SetReturning(self):
         self.__OnLoan = False
     
-CDs = [0 for x in range(5)]
+CDs = [0 for x in range(3)]
 for x in range(len(CDs)):
     Title = input("Title: ")
     Author = input("Author: ")
@@ -71,24 +71,24 @@ for x in range(len(CDs)):
         CDs[x].SetReturning()
 
 for i in range(len(CDs)):
-    onL = CDs[x].GetOnLoan()
+    onL = CDs[i].GetOnLoan()
     if onL == False:
-        print(CDs[x].GetID)
+        print(CDs[i].GetID())
 
-BooksArr = [0 for i in range(5)]
-for i in range(len(CDs)):
-    Title = input("Title: ")
-    Author = input("Author: ")
-    ID =  int(input("ID No: "))
-    onLoan = input("OnLoan, True or False: ")
-    BooksArr[i] = Books(Title, Author, ID)
-    if onLoan == "True":
-        BooksArr[i].SetBorrowing()
-    elif onLoan == "False":
-        BooksArr[i].SetReturning()
+# BooksArr = [0 for i in range(5)]
+# for i in range(len(CDs)):
+#     Title = input("Title: ")
+#     Author = input("Author: ")
+#     ID =  int(input("ID No: "))
+#     onLoan = input("OnLoan, True or False: ")
+#     BooksArr[i] = Books(Title, Author, ID)
+#     if onLoan == "True":
+#         BooksArr[i].SetBorrowing()
+#     elif onLoan == "False":
+#         BooksArr[i].SetReturning()
 
 
-for i in range(len(BooksArr)):
-    onL = BooksArr[i].GetOnLoan()
-    if onL == False:
-        print(BooksArr[i].GetID)
+# for i in range(len(BooksArr)):
+#     onL = BooksArr[i].GetOnLoan()
+#     if onL == False:
+#         print(BooksArr[i].GetID())
