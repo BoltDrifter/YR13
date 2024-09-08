@@ -1,4 +1,3 @@
-from calendar import week
 import datetime
 class LibraryItem:
     def __init__(self, t, a, i):
@@ -11,7 +10,6 @@ class LibraryItem:
 # other Get methods go here
     def Borrowing(self):
         self.__OnLoan = True
-        self.__DueDate = self.__DueDate + datetime.timedelta(week-3)
     def GetTitle(self):
         return(self.__Title)
     def GetAuthor(self):
@@ -40,9 +38,9 @@ class Books(LibraryItem):
     def GetBorrowing(self):
         print(self.__OnLoan)
     def SetBorrowing(self):
-        self.__OnLoan = True
+        LibraryItem.Borrowing(self)
     def SetReturning(self):
-        self.__OnLoan = False
+        LibraryItem.Returning(self)
 class CD(LibraryItem):
     def __init__(self, t, a, i):
         LibraryItem.__init__(self,t,a,i)
@@ -54,11 +52,11 @@ class CD(LibraryItem):
     def GetBorrowing(self):
         print(self.__OnLoan)
     def SetBorrowing(self):
-        self.__OnLoan = True
+        LibraryItem.Borrowing(self)
     def SetReturning(self):
-        self.__OnLoan = False
+        LibraryItem.Returning(self)
     
-CDs = [0 for x in range(3)]
+CDs = [0 for x in range(2)]
 for x in range(len(CDs)):
     Title = input("Title: ")
     Author = input("Author: ")
@@ -75,20 +73,20 @@ for i in range(len(CDs)):
     if onL == False:
         print(CDs[i].GetID())
 
-# BooksArr = [0 for i in range(5)]
-# for i in range(len(CDs)):
-#     Title = input("Title: ")
-#     Author = input("Author: ")
-#     ID =  int(input("ID No: "))
-#     onLoan = input("OnLoan, True or False: ")
-#     BooksArr[i] = Books(Title, Author, ID)
-#     if onLoan == "True":
-#         BooksArr[i].SetBorrowing()
-#     elif onLoan == "False":
-#         BooksArr[i].SetReturning()
+BooksArr = [0 for i in range(2)]
+for i in range(len(BooksArr)):
+    Title = input("Title: ")
+    Author = input("Author: ")
+    ID =  int(input("ID No: "))
+    onLoan = input("OnLoan, True or False: ")
+    BooksArr[i] = Books(Title, Author, ID)
+    if onLoan == "True":
+        BooksArr[i].SetBorrowing()
+    elif onLoan == "False":
+        BooksArr[i].SetReturning()
 
 
-# for i in range(len(BooksArr)):
-#     onL = BooksArr[i].GetOnLoan()
-#     if onL == False:
-#         print(BooksArr[i].GetID())
+for i in range(len(BooksArr)):
+    onL = BooksArr[i].GetOnLoan()
+    if onL == True:
+        print(BooksArr[i].GetID())
