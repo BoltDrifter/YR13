@@ -56,7 +56,7 @@ class CD(LibraryItem):
     def SetReturning(self):
         LibraryItem.Returning(self)
     
-CDs = [0 for x in range(2)]
+CDs = [0 for x in range(5)]
 for x in range(len(CDs)):
     Title = input("Title: ")
     Author = input("Author: ")
@@ -73,7 +73,7 @@ for i in range(len(CDs)):
     if onL == False:
         print(CDs[i].GetID())
 
-BooksArr = [0 for i in range(2)]
+BooksArr = [0 for i in range(5)]
 for i in range(len(BooksArr)):
     Title = input("Title: ")
     Author = input("Author: ")
