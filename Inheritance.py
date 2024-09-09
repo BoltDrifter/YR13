@@ -41,6 +41,8 @@ class Books(LibraryItem):
         LibraryItem.Borrowing(self)
     def SetReturning(self):
         LibraryItem.Returning(self)
+    def GetOnLoan(self):
+        LibraryItem.GetOnLoan(self)    
 class CD(LibraryItem):
     def __init__(self, t, a, i):
         LibraryItem.__init__(self,t,a,i)
@@ -55,7 +57,8 @@ class CD(LibraryItem):
         LibraryItem.Borrowing(self)
     def SetReturning(self):
         LibraryItem.Returning(self)
-    
+    def GetOnLoan(self):
+        LibraryItem.GetOnLoan(self)
 CDs = [0 for x in range(5)]
 for x in range(len(CDs)):
     Title = input("Title: ")
