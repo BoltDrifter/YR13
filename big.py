@@ -28,7 +28,7 @@ class Helicopter(vehicle):
     def __init__(self, i, s , a, v ,h):
         vehicle.__init__(self,i,s,a)
         self.__CurrentSpeed = 0
-        vehicle.__IncreaseAmount = a
+        self.__IncreaseAmount = a
         self.__HorizontalPosition = 0 
         self.__verticalPosition = 0 # Integer
         self.__verticalchange = v # Integer
