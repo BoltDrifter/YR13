@@ -28,7 +28,7 @@ class Helicopter(vehicle):
     def __init__(self, i, s , a, v ,h):
         vehicle.__init__(self,i,s,a)
         self.__CurrentSpeed = 0
-        self.__IncreaseAmount = a
+        vehicle.__IncreaseAmount = a
         self.__HorizontalPosition = 0 
         self.__verticalPosition = 0 # Integer
         self.__verticalchange = v # Integer
@@ -39,7 +39,8 @@ class Helicopter(vehicle):
             self.__verticalPosition = self.__verticalPosition + self.__verticalchange
             self.__HorizontalPosition = self.__HorizontalPosition + self.__CurrentSpeed
     def Output(self):
-        super().Output()
+        print(f"The Horizontal Position of the Vehicle is: {self.__HorizontalPosition} ")
+        print(f"The Current Speed of the Vehicle is: {self.__CurrentSpeed} ")
         print(f"The Vertical Postition of helicopter: {self.__verticalPosition}")
         
 # def OutputTest(self, vehicle, Helicopter):
