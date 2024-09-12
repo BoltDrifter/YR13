@@ -34,13 +34,16 @@ class Helicopter(vehicle):
         self.__verticalchange = v # Integer
         self.__MaxHeight = h # Integer
     def IncreaseSpeed(self):
-        if (self.__verticalPosition < self.__MaxHeight) and (self.GetCurrentSpeed() < self.GetMaxSpeed()):
-            self.__CurrentSpeed = self.__CurrentSpeed + self.__IncreaseAmount
-            self.__verticalPosition = self.__verticalPosition + self.__verticalchange
-            self.__HorizontalPosition = self.__HorizontalPosition + self.__CurrentSpeed
+        vehicle.IncreaseSpeed(self)
+        self.__verticalPosition = self.__verticalPosition + self.__verticalchange
+        # if (self.__verticalPosition < self.__MaxHeight) and (self.GetCurrentSpeed() < self.GetMaxSpeed()):
+        #     self.__CurrentSpeed = self.__CurrentSpeed + self.__IncreaseAmount
+        #     self.__verticalPosition = self.__verticalPosition + self.__verticalchange
+        #     self.__HorizontalPosition = self.__HorizontalPosition + self.__CurrentSpeed
     def Output(self):
-        print(f"The Horizontal Position of the Vehicle is: {self.__HorizontalPosition} ")
-        print(f"The Current Speed of the Vehicle is: {self.__CurrentSpeed} ")
+        vehicle.Output(self)
+        # print(f"The Horizontal Position of the Vehicle is: {self.__HorizontalPosition} ")
+        # print(f"The Current Speed of the Vehicle is: {self.__CurrentSpeed} ")
         print(f"The Vertical Postition of helicopter: {self.__verticalPosition}")
 
 Car = vehicle("Tiger", 100, 20)
@@ -53,3 +56,5 @@ Car.Output()
 Helicopters.IncreaseSpeed()
 Helicopters.IncreaseSpeed()
 Helicopters.Output()
+
+#s23 p41
