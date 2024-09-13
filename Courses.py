@@ -22,11 +22,14 @@ class Course:
         self.__CourseAssessment = Assessment
         self.__CourseLesson = [0 for x in range(50)]
     def AddLesson(self,T,M,R):
+        self.__NumberofLessons += 1
         self.__CourseLesson.append(Lesson(T,M,R))
     def AddAssessment(self,T,M):
-        self.__CourseAssessment.append(Assessment(T,M))
+        self.__CourseAssessment = Assessment(T,M)
     def OutputCourseDetails(self):
         print(self.__CourseTitle, "Maximum number: ", self.__MaxStudents)
+        for x in range(len(self.__CourseLesson)):
+            print(self.__CourseLesson[x].OutputLessonDetails()) 
 
 First = Course("CS101", 399, 20)
 First.AddLesson("OOP",90,False)
