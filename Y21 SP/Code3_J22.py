@@ -15,7 +15,7 @@ class Card:
 
 Array = ["" for x in range(30)]
 
-File = open("CardValues.txt","r")
+File = open(r"C:\Users\Baldeep\Desktop\YR13CS\YR13\Y21 SP\CardValues.txt","r")
 
 
 try:
@@ -25,9 +25,8 @@ try:
         Array[i] = Card(Number,Colour)
 except:
     print("Not Working")
-print(Array)
 
-def ChooseCards():
+def ChooseCards() -> int :
     Index = int(input("Enter a number: "))
     while Index < 1 or Index > 30:
         Index = int(input("Enter a number: "))
@@ -36,9 +35,11 @@ def ChooseCards():
         return Index
     while Array[Index].GetSelected() == True:
         Index = int(input("Already Chosen, Enter a number: "))
-            
+        if Array[Index].GetSelected() == False:
+            return Index
 
 Player1 = ["" for i in range(4)]
+
 
 for x in range(4):
     Cards = ChooseCards()
@@ -47,3 +48,5 @@ for x in range(4):
     Player1[x] = Card(N,C)
 
 print(Player1)
+
+File.close()
