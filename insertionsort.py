@@ -10,7 +10,7 @@ for i in range(len(array)):
 Pointer = 0
 NumberofItems = len(array)
 
-for i in range(NumberofItems - 1):
+for i in range(NumberofItems):
     ItemToInsert = array[i]
     CurrentItem = i - 1
     while (array[CurrentItem] > ItemToInsert ) and (CurrentItem > -1):
