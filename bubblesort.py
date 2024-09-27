@@ -12,5 +12,5 @@ while NoMoreSwaps == False:
             Array[j+1] = Temp
             NoMoreSwaps = False
     n = n - 1
-
-print(Array)
+for i in range(len(Array)):
+    print(Array[i])
