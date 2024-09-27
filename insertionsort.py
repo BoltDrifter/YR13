@@ -6,6 +6,7 @@ for i in range(len(array)):
     number = int(input("Enter Number: "))
     array[i] = number
 
+print(array)
 
 Pointer = 0
 NumberofItems = len(array)
@@ -17,5 +18,5 @@ for i in range(NumberofItems):
         array[CurrentItem + 1] = array[CurrentItem]
         CurrentItem = CurrentItem - 1
     array[CurrentItem + 1] = ItemToInsert
-    print(array)
+
 print(array)
