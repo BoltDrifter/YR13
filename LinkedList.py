@@ -1,26 +1,30 @@
-nullpointer = -1
+NULLPOINTER = -1
 
-class ListNode:
-    def __init__(self):
-        self.Data = "-"
-        self.Pointer = nullpointer
-def InitialiseList():
-    array = [ListNode() for i in range(8)]
-    startpointer = nullpointer
-    freelistptr = 0
-    for index in range(7):
-        array[index].pointer = index + 1
-        print(f"[{index}] {array[index].Data} {array[index].pointer}")
-    array[7].pointer = nullpointer
-    print(f"[7] {array[index].Data} {array[7].pointer}")
-    print(array)
-    return(array, startpointer, freelistptr)
+class ListNode :
+  def __init__(self) :
+    self.Data = "-"
+    self.Pointer = NULLPOINTER
 
-def insertnode(List,Startpointer, FreeListPtr, NewItem):
-    s = "a"
-    if FreeListPtr != nullpointer:
-        NewNodePtr = FreeListPtr  
-        List[FreeListPtr].Data = NewItem
+# Initialize the Linked List
+
+def InitialiseList() :
+    List = [ListNode() for i in range(8)]
+    StartPointer = NULLPOINTER 
+    FreeListPtr = 0 
+    for Index in range(7) : 
+        List[Index].Pointer = Index + 1
+        print("[",Index,"] ",List[Index].Data,"  ",List[Index].Pointer) 
+    List[7].Pointer = NULLPOINTER 
+    print("[",7,"] " ,List[7].Data,"  ",List[7].Pointer)
+    return(List, StartPointer, FreeListPtr)
+
+# Insertion of Data 
+
+def InsertNode(List, StartPointer, FreeListPtr, NewItem) :
+    s="a"
+    if FreeListPtr != NULLPOINTER :
+        NewNodePtr = FreeListPtr
+        List[NewNodePtr].Data = NewItem
         FreeListPtr = List[FreeListPtr].Pointer
         PreviousNodePtr = nullpointer
         ThisNode = Startpointer
@@ -41,14 +45,7 @@ def insertnode(List,Startpointer, FreeListPtr, NewItem):
 
 a,b,c = InitialiseList()
 print(a)
-
-first = int(input("Enter Data : "))
 for x in range(len(a)):
-    insertnode(a, b, c, first)
     ask = int(input("Enter Data: "))
     insertnode(a, b, c, ask)
-    for index in range(7):
-        a[index].Pointer = index + 1
-        print(f"[{index}] {a[index].Data} {a[index].Pointer}")
 print(a)
-
