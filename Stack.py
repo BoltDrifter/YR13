@@ -1,5 +1,6 @@
-array = [0 for x in range(10)]
+array = [0 for x in range(4)]
 
+# array2 = [34,65,4,3]
 
 # - 1
 # - 2 
@@ -16,26 +17,31 @@ array = [0 for x in range(10)]
 def addData(array):
     basepointer = 0
     global toppointer  
-    for i in range(len(array)):
+    for i in range(0,len(array)):
        ask = int(input("Enter Data: "))
        array[i] = ask
        toppointer = i
        if basepointer == 0:
-           basepointer = i
-    print(array)
+           basepointer = 0
+    for x in range(len(array)):
+        leng = len(array)
+        # print(leng - x)
+        print(array[leng-x-1])
     print("Top Pointer: ",toppointer)
     print("Base Pointer: ",basepointer)
 
 def delData(array,number):
-    n_to_be_deleted = 0
     previous_index = 0
     for i in range(len(array)):
         if array[i] == number:
-            n_to_be_deleted = i
             previous_index = i-1
         toppointer = previous_index
     print("Top Pointer: ",toppointer)
+    
+
+
+
 
 
 addData(array)
-delData(array,20)
+delData(array,43)

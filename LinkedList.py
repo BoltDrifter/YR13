@@ -26,12 +26,12 @@ def InsertNode(List, StartPointer, FreeListPtr, NewItem) :
         NewNodePtr = FreeListPtr
         List[NewNodePtr].Data = NewItem
         FreeListPtr = List[FreeListPtr].Pointer
-        PreviousNodePtr = nullpointer
+        PreviousNodePtr = NULLPOINTER
         ThisNode = Startpointer
-        while ThisNode != nullpointer and List[ThisNode].Data < NewItem:
+        while ThisNode != NULLPOINTER and List[ThisNode].Data < NewItem:
             PreviousNodePtr = List[ThisNode].Pointer
             ThisNode = List[ThisNode].Pointer
-        if PreviousNodePtr == nullpointer:
+        if PreviousNodePtr == NULLPOINTER:
             List[NewNodePtr].Pointer = Startpointer
             Startpointer = NewNodePtr
         else:
@@ -47,5 +47,5 @@ a,b,c = InitialiseList()
 print(a)
 for x in range(len(a)):
     ask = int(input("Enter Data: "))
-    insertnode(a, b, c, ask)
+    InsertNode(a, b, c, ask)
 print(a)
