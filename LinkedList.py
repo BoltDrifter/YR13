@@ -41,7 +41,14 @@ def insertnode(List,Startpointer, FreeListPtr, NewItem):
 
 a,b,c = InitialiseList()
 print(a)
+
+first = int(input("Enter Data : "))
 for x in range(len(a)):
+    insertnode(a, b, c, first)
     ask = int(input("Enter Data: "))
     insertnode(a, b, c, ask)
+    for index in range(7):
+        a[index].Pointer = index + 1
+        print(f"[{index}] {a[index].Data} {a[index].Pointer}")
 print(a)
+
