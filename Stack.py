@@ -1,47 +1,28 @@
-array = [0 for x in range(4)]
+nullpointer = -1
+class Node:
+    def __init__(self):
+        self.Data = "-"
+        self.Pointer = nullpointer
 
-# array2 = [34,65,4,3]
+def InitializeList():
+    global List
+    List = [Node() for i in range(8)]
+    StartPointer = nullpointer
+    FreeListPtr = 0 
+    for Index in range(7) : 
+        List[Index].Pointer = Index + 1
+        print("[",Index,"] ",List[Index].Data,"  ",List[Index].Pointer) 
+    List[7].Pointer = nullpointer 
+    print("[",7,"] " ,List[7].Data,"  ",List[7].Pointer)
+    return(List, StartPointer, FreeListPtr)
 
-# - 1
-# - 2 
-# - 3 
-# - 4
-# - 5 
-# - 6
-# - 7
-# - 8
-# - 9
-# - 10
-
-
-def addData(array):
-    basepointer = 0
-    global toppointer  
-    for i in range(0,len(array)):
-       ask = int(input("Enter Data: "))
-       array[i] = ask
-       toppointer = i
-       if basepointer == 0:
-           basepointer = 0
-    for x in range(len(array)):
-        leng = len(array)
-        # print(leng - x)
-        print(array[leng-x-1])
-    print("Top Pointer: ",toppointer)
-    print("Base Pointer: ",basepointer)
-
-def delData(array,number):
-    previous_index = 0
-    for i in range(len(array)):
-        if array[i] == number:
-            previous_index = i-1
-        toppointer = previous_index
-    print("Top Pointer: ",toppointer)
-    
+def Push(Array, TopPointer, FreeListPointer):
+    ask = input("Enter Data: ")
+    Array[FreeListPointer] = ask
+    TopPointer = List[TopPointer].Pointer + 1
 
 
 
 
-
-addData(array)
-delData(array,43)
+a,b,c = InitializeList()
+Push(a,b,c)
