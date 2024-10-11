@@ -32,7 +32,7 @@ def Push(TopPointer, FreeListPointer):
     return(TopPointer,FreeListPointer)
 
 def Pop(TopPointer,FreeListPtr):
-    TopPointer = List[TopPointer].Pointer - 1
+    TopPointer = TopPointer - 1
     FreeListPtr = FreeListPtr -  1 
     for i in range(len(List)):
         print(f"[{i}]   {List[i].Data}  {List[i].Pointer}")
