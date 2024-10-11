@@ -1,15 +1,16 @@
 def init():
     global Array 
-    Array = [0 for i in range(4)]
+    Array = ["-"for i in range(8)]
     TopPointer = 0
     EndPointer = -1
     NumberInQueue = 0
+    print(" ")
     for i in range(len(Array)):
-        print(Array[i])
-    
+        print(f"[{i}]   {Array[i]}")
     return(TopPointer, EndPointer,NumberInQueue)
 
 def AddItem(TopPointer, EndPointer, NumberInQueue):
+    global MaxQueue
     MaxQueue = len(Array)
     ask = input("Enter Data: ")
     if NumberInQueue < MaxQueue:
@@ -18,28 +19,34 @@ def AddItem(TopPointer, EndPointer, NumberInQueue):
             EndPointer = 0
         Array[EndPointer] = ask
         NumberInQueue += 1
-    else:
+    elif NumberInQueue >= MaxQueue:
         print("Queue Full !")
+    print(NumberInQueue,MaxQueue)
+    print("   ")
     for i in range(len(Array)):
-        print(Array[i])
+        print(f"[{i}]   {Array[i]}")
+    print("   ")
     print(f"Top Pointer: {TopPointer}")
     print(f"End Pointer: {EndPointer}")
     return(TopPointer,EndPointer,NumberInQueue)
 
 def RemoveItem(TopPointer, EndPointer, NumberInQueue):
-    TopPointer = TopPointer + 1 
-    print(f"Top Pointer: {TopPointer}")
-    print(f"End Pointer: {EndPointer}")
+    if NumberInQueue == MaxQueue:
+        TopPointer = TopPointer + 1 
+        EndPointer = -1
+        NumberInQueue = 0
+    for i in range(len(Array)):
+        print(f"[{i}]   {Array[i]}")
     return(TopPointer, EndPointer,NumberInQueue)
 
 
 def Print():
-    pass
+    for i in range(len(Array)):
+        print(f"[{i}]   {Array[i]}")
+
 
 
 a,b,c = init()
-
-AddItem(a,b,c)
 m = a
 s = b
 f = c
@@ -48,6 +55,7 @@ Choice = int(input("""
 2. Pop
 3. Output
 4. End
+                   
 """))
 while Choice != 4:
     if Choice == 1:
@@ -55,21 +63,16 @@ while Choice != 4:
         m = k
         s = d
         f = e
-        Choice = int(input("""
-1. Push
-2. Pop
-3. Output
-4. End
-"""))
     if Choice == 2:
        m,s,f = RemoveItem(m,s,f)
-       Choice = int(input("""
-1. Push
-2. Pop
-3. Output
-4. End
-"""))
     if Choice == 3:
         Print()
     if Choice == 4:
         quit()
+    Choice = int(input("""
+1. Push
+2. Pop
+3. Output
+4. End
+                           
+"""))
