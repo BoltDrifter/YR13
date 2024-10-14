@@ -60,7 +60,7 @@ Choice = int(input("""
 while Choice != 4:
     if Choice == 1:
         k,d,e = AddItem(m,s,f)
-        m = k
+        m = k 
         s = d
         f = e
     if Choice == 2:

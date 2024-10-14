@@ -47,6 +47,5 @@ for x in range(4):
     C = Array[Cards].GetColour()
     Player1[x] = Card(N,C)
 
-print(Player1)
 
 File.close()
