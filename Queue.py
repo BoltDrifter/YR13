@@ -1,6 +1,6 @@
 def init():
     global Array 
-    Array = ["-"for i in range(8)]
+    Array = ["-" for i in range(8)]
     TopPointer = 0
     EndPointer = -1
     NumberInQueue = 0
@@ -33,8 +33,11 @@ def AddItem(TopPointer, EndPointer, NumberInQueue):
 def RemoveItem(TopPointer, EndPointer, NumberInQueue):
     if NumberInQueue == MaxQueue:
         TopPointer = TopPointer + 1 
-        EndPointer = -1
-        NumberInQueue = 0
+        if EndPointer > MaxQueue:
+            EndPointer = -1
+        print(EndPointer)
+        EndPointer = EndPointer + 1
+        NumberInQueue = MaxQueue - 1
     for i in range(len(Array)):
         print(f"[{i}]   {Array[i]}")
     return(TopPointer, EndPointer,NumberInQueue)
