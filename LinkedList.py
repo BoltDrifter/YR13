@@ -1,89 +1,92 @@
-nullpointer = -1
+NULLPOINTER = -1
 
 class ListNode :
   def __init__(self) :
     self.Data = "-"
-    self.Pointer = nullpointer
-
-# Initialize the Linked List
-
+    self.Pointer = NULLPOINTER
 def InitialiseList() :
-    global List
     List = [ListNode() for i in range(8)]
-    StartPointer = nullpointer
+    StartPointer = NULLPOINTER 
     FreeListPtr = 0 
     for Index in range(7) : 
         List[Index].Pointer = Index + 1
         print("[",Index,"] ",List[Index].Data,"  ",List[Index].Pointer) 
-    List[7].Pointer = nullpointer
+    List[7].Pointer = NULLPOINTER 
     print("[",7,"] " ,List[7].Data,"  ",List[7].Pointer)
-    return(StartPointer, FreeListPtr)
-
-# Insertion of Data 
-
-def InsertNode(Startpointer, FreeListPtr) :
-    ask = int(input("Enter Data: "))
-    if FreeListPtr != nullpointer :
-        NewNodePtr = FreeListPtr
-        List[NewNodePtr].Data = ask
-        FreeListPtr = List[FreeListPtr].Pointer
-        PreviousNodePtr = nullpointer
-        ThisNode = Startpointer
-        while ThisNode != nullpointer and List[ThisNode].Data < ask:
-            PreviousNodePtr = List[ThisNode].Pointer
-            ThisNode = List[ThisNode].Pointer
-        if PreviousNodePtr == nullpointer:
-            List[NewNodePtr].Pointer = Startpointer
-            Startpointer = NewNodePtr
-        else:
-            List[NewNodePtr].Pointer = List[PreviousNodePtr].Pointer
-            List[PreviousNodePtr].Pointer = NewNodePtr
-        if List[FreeListPtr].Data == "-":
-            List[PreviousNodePtr].Pointer = -1
-    else:
-        print("No space for more data")
-    for Index in range(7) : 
-        List[Index].Pointer = Index + 1
-        print("[",Index,"] ",List[Index].Data,"  ",List[Index].Pointer) 
-    List[7].Pointer = nullpointer
-    print("[",7,"] " ,List[7].Data,"  ",List[7].Pointer)
-    return(Startpointer,FreeListPtr)
+    return(List, StartPointer, FreeListPtr)
     
-def deleteNode(Startpointer,FreeListPtr):
-    Pre = List[Startpointer - 1].Pointer 
-    FreeListPtr = FreeListPtr - 1
-    List[Startpointer].Pointer = Pre
-    print(Startpointer, FreeListPtr)
-    return(Startpointer,FreeListPtr)
+def InsertNode(List, StartPointer, FreeListPtr, NewItem) :
+    s="a"
+    if FreeListPtr != NULLPOINTER :
+        NewNodePtr = FreeListPtr
+        List[NewNodePtr].Data = NewItem
+        FreeListPtr = List[FreeListPtr].Pointer
+        PreviousNodePtr = NULLPOINTER
+        ThisNodePtr = StartPointer 
+        while ThisNodePtr != NULLPOINTER and List[ThisNodePtr].Data < NewItem:
+            PreviousNodePtr = ThisNodePtr 
+            ThisNodePtr = List[ThisNodePtr].Pointer
+        if PreviousNodePtr == NULLPOINTER :
+              List[NewNodePtr].Pointer = StartPointer
+              StartPointer = NewNodePtr
+        else : 
+              List[NewNodePtr].Pointer = List[PreviousNodePtr].Pointer
+              List[PreviousNodePtr].Pointer = NewNodePtr
+        print("This N P =",ThisNodePtr,"New N P =",NewNodePtr,"Pr N P =",PreviousNodePtr)
+    else :
+      print("No space for more data")
+      s="full"
+    
+    return(List, StartPointer, FreeListPtr,s)
+  
+def deleteNode(List, StartPointer, FreeListPtr, DataItem):
+   ThisNode = StartPointer
+   while ThisNode != NULLPOINTER and List[ThisNode].Data != DataItem:
+    PreviousNodePtr = ThisNode
+    ThisNode = List[ThisNode].Pointer
+   if ThisNode != NULLPOINTER:
+    if ThisNode == StartPointer:
+        StartPointer = List[StartPointer].Pointer
+    else:
+        List[PreviousNodePtr].Pointer = List[ThisNode].Pointer
+    List[ThisNode].Pointer = FreeListPtr
+    FreeListPtr = ThisNode
+    return(List, StartPointer, FreeListPtr)  
+   
+def Outputallnodes(List, StartPointer,FreeListPtr) :
+    currentp=StartPointer
+    while (currentp!=-1):
+      print(List[currentp].Data, " ", List[currentp].Pointer)
+      currentp=List[currentp].Pointer  
+      
+      
+              
+def GetOption() :
+    print("1: insert a value")
+    print("2: delete a value")
+    print("3: find a value")
+    print("4: output list")
+    print("5: end program")
+    option = input("Enter your choice: ")
+    return(option)
 
-a,b = InitialiseList()
-
-m = a
-s = b
-
-Choice = int(input("""
-1. Push
-2. Pop
-3. Output
-4. End
-                   
-"""))
-while Choice != 4:
-    if Choice == 1:
-        c,d = InsertNode(m,s)
-        m = c
-        s = d
-    if Choice == 2:
-       m,s= deleteNode(m,s)
-    if Choice == 3:
-        # Print()
-        pass
-    if Choice == 4:
-        quit()
-    Choice = int(input("""
-1. Push
-2. Pop
-3. Output
-4. End
-                           
-"""))
+Option = GetOption()
+List, StartPointer, FreeListPtr = InitialiseList()
+while Option != "5" :
+  if Option == "1" :
+      Data = input("Enter the value: ")
+      List, StartPointer, FreeListPtr,s = InsertNode(List, StartPointer, FreeListPtr, Data)
+      print("StartPointer ",StartPointer,", FreeListPtr ",FreeListPtr)
+      for Index in range(len(List)) : 
+        print("[",Index,"] ",List[Index].Data,"  ",List[Index].Pointer) 
+      if s=="full":
+        Option = GetOption()
+  if Option == "2" :
+      Data = input("Enter the value: ")
+      List, StartPointer, FreeListPtr = deleteNode(List, StartPointer, FreeListPtr, Data)
+      print("StartPointer ",StartPointer,", FreeListPtr ",FreeListPtr)
+      for Index in range(len(List)) : 
+        print("[",Index,"] ",List[Index].Data,"  ",List[Index].Pointer)
+  if Option=="4":
+    Outputallnodes(List, StartPointer,FreeListPtr)
+    Option = GetOption()
